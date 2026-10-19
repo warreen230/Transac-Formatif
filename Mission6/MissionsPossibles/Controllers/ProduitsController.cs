@@ -54,7 +54,8 @@ namespace Mission.Controllers
             {
                 Text = i.Titre,
                 Value = i.Id.ToString()
-            });
+            }).ToList();
+        
             return View(produit_VM);
         }
 
@@ -71,7 +72,11 @@ namespace Mission.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-         
+            produit_VM.CategorieList = _context.Categories .OrderBy(c => c.Titre).Select(c => new SelectListItem
+            {
+                Text = c.Titre,
+                Value = c.Id.ToString()
+             }).ToList();
             return View(produit_VM);
         }
 

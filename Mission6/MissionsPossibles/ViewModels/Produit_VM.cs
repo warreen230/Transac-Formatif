@@ -5,8 +5,8 @@ namespace Mission.ViewModels
 {
     public class Produit_VM
     {
-        public Produit Produit { get; set; }
-        public IEnumerable<SelectListItem> CategorieList { get; set; }
+        public Produit Produit { get; set; } = new Produit();
+        public IEnumerable<SelectListItem> CategorieList { get; set; } = new List<SelectListItem>();
 
 
     }
