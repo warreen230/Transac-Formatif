@@ -24,7 +24,9 @@ namespace Mission.Controllers
         public async Task<IActionResult> Index()
         {
             // COMPLÉTER ICI
-            return View();
+            var produits = _context.produits.ToList();
+            return View(produits);
+            //il n'y avait pas de db context et ne retourner pas la liste de produits
         }
 
     }
